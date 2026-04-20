@@ -1,0 +1,5 @@
+# UGS game HTML is copied into public/games/ by prebuild (see scripts/syncUgsToPublic.mjs)
+public/games/*.html
+public/games/*.htm
+!public/games/404.html
+!public/games/fluxy-mock-*.html

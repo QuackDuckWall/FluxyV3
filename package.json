@@ -1,0 +1,14 @@
+{
+  "name": "fluxy-monorepo",
+  "private": true,
+  "engines": {
+    "node": "20"
+  },
+  "scripts": {
+    "build": "npm ci --prefix Server",
+    "start": "node Server/index.js",
+    "build:client": "node Client/scripts/run-build.mjs",
+    "deploy:hosting": "node Client/scripts/run-build.mjs && firebase deploy --only hosting",
+    "verify:inclides": "node Server/scripts/verify-inclides.mjs"
+  }
+}

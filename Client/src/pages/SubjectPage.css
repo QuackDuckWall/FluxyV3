@@ -1,0 +1,207 @@
+.subject-page {
+  padding: 0 1.5rem 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* --- Premium games catalog hero (/games) --- */
+.games-catalog-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 1.35rem 1.5rem 1.2rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid color-mix(in srgb, var(--border) 85%, transparent);
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--accent) 10%, transparent),
+    0 16px 48px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 color-mix(in srgb, #fff 8%, transparent);
+}
+
+.games-catalog-hero__glow {
+  position: absolute;
+  left: -15%;
+  right: -15%;
+  bottom: -55%;
+  height: 140px;
+  background: linear-gradient(125deg, var(--gradient-start), var(--gradient-end));
+  opacity: 0.11;
+  filter: blur(48px);
+  pointer-events: none;
+}
+
+.page-header--games-hero {
+  padding: 0 0 1rem;
+  margin-bottom: 0;
+  position: relative;
+  z-index: 1;
+  border-bottom: 1px solid color-mix(in srgb, var(--border) 70%, transparent);
+}
+
+.page-header--games-hero .header-eyebrow {
+  color: color-mix(in srgb, var(--accent) 75%, var(--text-muted));
+}
+
+.page-header--games-hero .header-title {
+  font-size: clamp(1.85rem, 4.5vw, 2.5rem);
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  line-height: 1.05;
+  background: linear-gradient(
+    135deg,
+    var(--text-primary) 0%,
+    var(--text-primary) 28%,
+    var(--gradient-start) 62%,
+    var(--gradient-end) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.games-catalog-metrics {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.1rem;
+  position: relative;
+  z-index: 1;
+  padding-top: 1rem;
+}
+
+.games-metric {
+  display: flex;
+  flex-direction: column;
+  gap: 0.12rem;
+  min-width: 0;
+}
+
+.games-metric--wide {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.games-metric__value {
+  font-size: 1.35rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.games-metric__label {
+  font-size: 0.625rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+}
+
+.games-metric__label--inline {
+  text-transform: none;
+  letter-spacing: 0.01em;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.games-metric__icon {
+  flex-shrink: 0;
+  color: var(--accent);
+  opacity: 0.9;
+}
+
+.games-metric-divider {
+  width: 1px;
+  height: 32px;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    var(--border) 20%,
+    var(--border) 80%,
+    transparent
+  );
+  flex-shrink: 0;
+}
+
+.subject-toolbar {
+  margin-bottom: 1.5rem;
+  max-width: 400px;
+}
+
+.subject-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 1rem;
+}
+
+.subject-category-title {
+  grid-column: 1 / -1;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin: 0.5rem 0 0.15rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.subject-category-title:first-child {
+  margin-top: 0;
+}
+
+.subject-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 0;
+  gap: 1rem;
+  color: var(--text-muted);
+}
+
+.subject-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  text-align: center;
+  gap: 0.75rem;
+  color: var(--text-muted);
+}
+
+.subject-empty h3 {
+  color: var(--text-secondary);
+}
+
+.subject-load-more {
+  display: block;
+  margin: 2rem auto 0;
+}
+
+@media (max-width: 640px) {
+  .subject-page {
+    padding: 0 1rem 1.5rem;
+  }
+
+  .games-catalog-hero {
+    padding: 1.1rem 1.15rem 1rem;
+  }
+
+  .games-catalog-metrics {
+    gap: 0.6rem 0.75rem;
+  }
+
+  .games-metric-divider {
+    display: none;
+  }
+
+  .subject-grid {
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 0.75rem;
+  }
+}

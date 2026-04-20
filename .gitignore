@@ -1,0 +1,45 @@
+# Dependencies
+node_modules/
+
+# Build output
+Client/dist/
+Server/dist/
+
+# Environment files (contain secrets)
+.env
+*.env.local
+*.env.production.local
+*.env.development.local
+
+# Firebase secrets
+serviceAccountKey.json
+*firebase-adminsdk*.json
+*-debug.log
+firebase-debug.log
+
+# Legacy UGS path at repo root (optional). Games live in Client/UGS Files now.
+/UGS Files/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Cache
+.cache/
+.parcel-cache/
+
+# Firebase CLI local cache
+.firebase/
+
+# AI folders
+.claude/
+.cursor/

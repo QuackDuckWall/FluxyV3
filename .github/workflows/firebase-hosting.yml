@@ -1,11 +1,3 @@
-# Full Firebase deploy on every push to `main` (after you commit and `git push`).
-# Deploys: Hosting (built client), Firestore rules + indexes, Storage rules.
-#
-# Required secret: FIREBASE_SERVICE_ACCOUNT_FLUXYV3_PROD
-# Firebase Console → Project settings → Service accounts → Generate new private key →
-# GitHub repo → Settings → Secrets and variables → Actions → New repository secret (paste JSON).
-#
-# Note: Only `git push` to GitHub triggers this; local commits alone do not.
 name: Deploy Firebase
 
 on:
@@ -23,12 +15,15 @@ permissions:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repo
+        uses: actions/checkout@v4
         with:
           lfs: true
 
-      - uses: actions/setup-node@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: npm
@@ -46,11 +41,14 @@ jobs:
       - name: Authenticate to Google Cloud
         uses: google-github-actions/auth@v2
         with:
-          credentials_json: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_FLUXYV3_PROD }}
+          credentials_json: ${{ secrets.GCP_CREDENTIALS }}
 
       - name: Install Firebase CLI
         run: npm install -g firebase-tools
 
-      - name: Deploy Hosting, Firestore, Storage
+      - name: Deploy to Firebase
         run: |
-          firebase deploy --only hosting,firestore,storage --project fluxyv3-prod --non-interactive
+          firebase deploy \
+            --only hosting,firestore,storage \
+            --project fluxyv3-prod \
+            --non-interactive

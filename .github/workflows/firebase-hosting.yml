@@ -50,5 +50,5 @@ jobs:
         run: |
           firebase deploy \
             --only hosting,firestore,storage \
-            --project fluxyv3-prod \
+            --project fluxyv3-prod-12345 \
             --non-interactive
